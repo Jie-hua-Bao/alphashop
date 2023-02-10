@@ -1,9 +1,12 @@
 import React from "react";
 import { ReactComponent as SvgRightArrow } from "../../imagefiles/icons/right-arrow.svg";
 import { ReactComponent as SvgLeftArrow } from "../../imagefiles/icons/left-arrow.svg";
+
+
+
 function ProgressControl() {
   return (
-    <section class="progress-control-container col col-lg-6 col-sm-12">
+    <section className="progress-control-container col col-lg-6 col-sm-12">
       <section className="button-group col col-12" data-phase="address">
         <button className="next">
           下一步
