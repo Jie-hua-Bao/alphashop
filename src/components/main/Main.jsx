@@ -4,6 +4,7 @@ import StepOne from "./steps/StepOne";
 import StepTwo from "./steps/StepTwo";
 import StepThree from "./steps/StepThree";
 import ProgressControl from "./ProgressControl";
+import Cart from "./Cart";
 function Main() {
   return (
     <main class="site-main">
@@ -21,9 +22,8 @@ function Main() {
             <StepThree />
           </section>
         </section>
-        <section class="progress-control-container col col-lg-6 col-sm-12">
-          <ProgressControl />
-        </section>
+        <Cart />
+        <ProgressControl />
       </div>
     </main>
   );

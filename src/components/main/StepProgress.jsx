@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as SvgPgCompleteIcon } from "../../icons/pg-complete.svg";
+import { ReactComponent as SvgPgCompleteIcon } from "../../imagefiles/icons/pg-complete.svg";
 
 function StepProgress() {
   return (

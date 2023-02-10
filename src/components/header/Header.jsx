@@ -1,10 +1,10 @@
 import React from "react";
-import { ReactComponent as SvgSearchIcon } from "../../icons/search.svg";
-import { ReactComponent as SvgToggleIcon } from "../../icons/toggle.svg";
-import { ReactComponent as SvgCartIcon } from "../../icons/cart.svg";
-import { ReactComponent as SvgMoonIcon } from "../../icons/moon.svg";
-import { ReactComponent as SvgSunIcon } from "../../icons/sun.svg";
-import { ReactComponent as SvgLogoIcon } from "../../icons/logo.svg";
+import { ReactComponent as SvgSearchIcon } from "../../imagefiles/icons/search.svg";
+import { ReactComponent as SvgToggleIcon } from "../../imagefiles/icons/toggle.svg";
+import { ReactComponent as SvgCartIcon } from "../../imagefiles/icons/cart.svg";
+import { ReactComponent as SvgMoonIcon } from "../../imagefiles/icons/moon.svg";
+import { ReactComponent as SvgSunIcon } from "../../imagefiles/icons/sun.svg";
+import { ReactComponent as SvgLogoIcon } from "../../imagefiles/icons/logo.svg";
 
 function Header() {
   return (
