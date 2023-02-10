@@ -33,7 +33,7 @@ function StepProgress() {
               <SvgPgCompleteIcon />
             </svg>
           </span>
-          <span class="progress-label">付款資訊</span>
+          <span className="progress-label">付款資訊</span>
         </span>
       </section>
     </>
