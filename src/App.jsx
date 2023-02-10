@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/header/Header";
-import { ReactComponent as SvgSearchIcon } from "././icons/search.svg";
+import Main from "./components/main/Main";
 
 
 // 引入CSS
@@ -13,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Main />
     </div>
   );
 }
