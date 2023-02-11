@@ -1,4 +1,8 @@
 import React from "react";
+import { Input } from "../Public";
+
+
+
 
 function StepOne() {
   return (
@@ -20,17 +24,18 @@ function StepOne() {
           </div>
           <div className="input-group input-w-lg-4 input-w-sm-s2">
             <div className="input-label">姓名</div>
-            <input type="text" placeholder="請輸入姓名" />
+            <Input type="text" placeholder="請輸入姓名" />
+            {/* <input type="text" placeholder="請輸入姓名" /> */}
           </div>
         </div>
         <div className="col col-12">
           <div className="input-group input-w-lg-3 input-w-sm-full">
             <div className="input-label">電話</div>
-            <input type="tel" placeholder="請輸入行動電話" />
+            <Input type="tel" placeholder="請輸入行動電話" />
           </div>
           <div className="input-group input-w-lg-3 input-w-sm-full">
             <div className="input-label">Email</div>
-            <input type="email" placeholder="請輸入電子郵件" />
+            <Input type="email" placeholder="請輸入電子郵件" />
           </div>
         </div>
         <div className="col col-12">
@@ -73,7 +78,7 @@ function StepOne() {
           </div>
           <div className="input-group input-w-lg-4 input-w-sm-full">
             <div className="input-label">地址</div>
-            <input type="text" placeholder="請輸入地址" />
+            <Input type="text" placeholder="請輸入地址" />
           </div>
         </div>
       </section>
