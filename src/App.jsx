@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./components/header/Header";
-import Main from "./components/main/Main";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
 import "./style/css/reset.css";
 import "./style/css/base.css";
 import "./style/css/dark-theme.css";
