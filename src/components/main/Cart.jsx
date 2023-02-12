@@ -41,6 +41,12 @@ function Cart() {
           title="破壞補丁修身牛仔褲"
           img={Product1}
         />
+        <Product
+          count={0}
+          price={3999}
+          title="破壞補丁修身牛仔褲"
+          img={Product1}
+        />
         {/* <div
           className="product-container col col-12"
           data-count="0"
