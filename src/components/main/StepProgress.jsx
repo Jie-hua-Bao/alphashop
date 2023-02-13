@@ -6,7 +6,7 @@ function Register({ children, dataphase, step, title }) {
     <span className="progress-group" data-phase={dataphase}>
       <span className="progress-icon">
         <span className="text">{step}</span>
-        {children}
+        <svg className="icon cursor-point">{children}</svg>
       </span>
       <span className="progress-label">{title}</span>
     </span>
