@@ -3,22 +3,24 @@ import { ReactComponent as SvgIconMinus } from "../../imagefiles/icons/minus.svg
 import { ReactComponent as SvgPlus } from "../../imagefiles/icons/plus.svg";
 import Product1 from "../../imagefiles/images/product-1.jpg";
 import Product2 from "../../imagefiles/images/product-2.jpg";
-function Product({ count, price, img, title }) {
+import cardData from "../../data/cardData";
+
+function Product({ quantity, price, img, name }) {
   return (
     <div
       className="product-container col col-12"
-      data-count={count}
+      data-count={quantity}
       data-price={price}
     >
       <img className="img-container" src={img} alt="" />
       <div className="product-info">
-        <div className="product-name">{title}</div>
+        <div className="product-name">{name}</div>
         <div className="product-control-container">
           <div className="product-control">
             <svg className="product-action minus">
               <SvgIconMinus />
             </svg>
-            <span className="product-count">{count}</span>
+            <span className="product-count">{quantity}</span>
             <svg className="product-action plus">
               <SvgPlus />
             </svg>
@@ -35,12 +37,9 @@ function Cart() {
     <section className="cart-container col col-lg-5 col-sm-12">
       <h3 className="cart-title">購物籃</h3>
       <section className="product-list col col-12" data-total-price="0">
-        <Product
-          count={0}
-          price={3999}
-          title="破壞補丁修身牛仔褲"
-          img={Product1}
-        />
+        {cardData.map((card) => (
+          <Product {...card} key={card.id} />
+        ))}
         {/* <div
           className="product-container col col-12"
           data-count="0"
@@ -63,7 +62,6 @@ function Cart() {
             <div className="price">399</div>
           </div>
         </div> */}
-        <Product count={0} price={2999} title="刷色直筒牛仔褲" img={Product2} />
         {/* <div
           className="product-container col col-12"
           data-count="0"
