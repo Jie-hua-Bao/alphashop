@@ -17,18 +17,23 @@ function Product({ quantity, price, img, name }) {
         <div className="product-name">{name}</div>
         <div className="product-control-container">
           <div className="product-control">
-            <svg className="product-action minus">
-              <SvgIconMinus />
-            </svg>
+            <SvgIconMinus className="product-action minus" />
             <span className="product-count">{quantity}</span>
-            <svg className="product-action plus">
-              <SvgPlus />
-            </svg>
+            <SvgPlus className="product-action plus" />
           </div>
         </div>
-        <div className="price">{price}</div>
+        <div className="price">${price}</div>
       </div>
     </div>
+  );
+}
+
+function Price({ price, title }) {
+  return (
+    <section className="cart-info shipping col col-12">
+      <div className="text">{title}</div>
+      <div className="price">{price}</div>
+    </section>
   );
 }
 
@@ -41,14 +46,8 @@ function Cart() {
           <Product {...card} key={card.id} />
         ))}
       </section>
-      <section className="cart-info shipping col col-12">
-        <div className="text">運費</div>
-        <div className="price">{0}</div>
-      </section>
-      <section className="cart-info total col col-12">
-        <div className="text">小計</div>
-        <div className="price">{0}</div>
-      </section>
+      <Price title="運費" price={"免費"} />
+      <Price title="小計" price={"$" + 0} />
     </section>
   );
 }
