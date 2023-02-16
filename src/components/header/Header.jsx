@@ -14,9 +14,7 @@ function Header() {
           {/* <!-- navbar-toggle --> */}
           <input id="navbar-toggle" className="navbar-toggle" type="checkbox" />
           <label for="navbar-toggle" className="burger-container">
-            <svg className="icon-toggle cursor-point">
-              <SvgToggleIcon />
-            </svg>
+            <SvgToggleIcon className="icon-toggle cursor-point" />
           </label>
           {/* 
         <!-- navbar-menu --> */}
@@ -51,21 +49,15 @@ function Header() {
             <ul className="nav-list site-action-list">
               {/* <!-- search --> */}
               <li className="nav-item">
-                <svg className="nav-icon cursor-point">
-                  <SvgSearchIcon />
-                </svg>
+                <SvgSearchIcon className="nav-icon cursor-point" />
               </li>
               {/* <!-- cart --> */}
               <li className="nav-item">
-                <svg className="nav-icon cursor-point">
-                  <SvgCartIcon />
-                </svg>
+                <SvgCartIcon className="nav-icon cursor-point" />
               </li>
               <li id="theme-toggle" className="nav-item">
                 {/* <!-- moon --> */}
-                <svg className="nav-icon cursor-point">
-                  <SvgMoonIcon />
-                </svg>
+                <SvgMoonIcon className="nav-icon cursor-point" />
                 {/* <!-- sun --> */}
                 {/* <svg className="nav-icon cursor-point">
                   <SvgSunIcon />
