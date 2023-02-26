@@ -21,8 +21,8 @@ function NextBtn({ onClick }) {
 
 function ProgressControl({ currentStep, phase, setPhase, setCurrentStep }) {
   const handleBtnClick = (e) => {
+    // 按紐的父層 data-phase的值
     const btnPhase = e.target.parentElement.dataset.phase;
-
     // 下一頁按紐設定
     if (e.target.className === "next" && e.target.closest("button")) {
       if (btnPhase === "address") {
