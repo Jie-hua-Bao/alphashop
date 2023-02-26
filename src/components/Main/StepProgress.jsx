@@ -1,33 +1,31 @@
 import React from "react";
 import { ReactComponent as SvgPgCompleteIcon } from "../../imagefiles/icons/pg-complete.svg";
 
-function Register({ currentStep, step, title }) {
+function Register({ phase, currentStep, title }) {
   return (
     <>
-      <span className="progress-group" data-phase={currentStep}>
+      <span className="progress-group" data-phase={phase}>
         <span className="progress-icon">
-          <span className="text">{step}</span>
+          <span className="text">{currentStep}</span>
           <SvgPgCompleteIcon className="icon cursor-point" />
         </span>
         <span className="progress-label">{title}</span>
       </span>
-      {step !== 3 && <span className="progress-bar" data-order={step}></span>}
+      {currentStep !== 3 && (
+        <span className="progress-bar" data-order={currentStep}></span>
+      )}
     </>
   );
 }
 
-function StepProgress({ currentStep }) {
-  
-
-
-  
+function StepProgress() {
   return (
     <>
       {/* <!-- register-progress --> */}
       <section className="progress-container col col-12">
-        <Register currentStep="address" step={1} title="寄送地址" />
-        <Register currentStep="shipping" step={2} title="運送方式" />
-        <Register currentStep="credit-card" step={3} title="付款資訊" />
+        <Register phase="address" currentStep={1} title="寄送地址" />
+        <Register phase="shipping" currentStep={2} title="運送方式" />
+        <Register phase="credit-card" currentStep={3} title="付款資訊" />
       </section>
     </>
   );

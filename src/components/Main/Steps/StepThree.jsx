@@ -37,7 +37,7 @@ function StepThree() {
         <div className="col col-12">
           <Payment
             payment={{
-              className: "input-group input-w-lg-4 input-w-sm-full",
+              className: "input-group input-w-lg-3 input-w-sm-full",
               title: "卡號",
               type: "text",
               placeholder: "MM/YY",

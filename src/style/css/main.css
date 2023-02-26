@@ -941,7 +941,7 @@ section.register-container[data-phase="1"]
   display: flex;
 }
 section.register-container[data-phase="1"] form[data-phase="shipping"] {
-  display: none;
+  display: none; /*改成flex*/
 }
 section.register-container[data-phase="1"]
   ~ section.progress-control-container
@@ -949,7 +949,7 @@ section.register-container[data-phase="1"]
   display: none;
 }
 section.register-container[data-phase="1"] form[data-phase="credit-card"] {
-  display: none;
+  display: none; /*改成flex*/
 }
 section.register-container[data-phase="1"]
   ~ section.progress-control-container
