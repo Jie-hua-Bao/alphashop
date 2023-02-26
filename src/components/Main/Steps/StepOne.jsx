@@ -51,7 +51,6 @@ function StepOne() {
           <div className="input-group input-w-lg-4 input-w-sm-s2">
             <div className="input-label">姓名</div>
             <Input type="text" placeholder="請輸入姓名" />
-            {/* <input type="text" placeholder="請輸入姓名" /> */}
           </div>
         </div>
         <div className="col col-12">

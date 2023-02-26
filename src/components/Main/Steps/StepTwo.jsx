@@ -8,7 +8,6 @@ function StepTwo() {
       <section className="form-body col col-12">
         <label className="radio-group col col-12" data-price="0">
           <Input id="shipping-standard" type="radio" name="shipping" checked />
-          {/* <input id="shipping-standard" type="radio" name="shipping" checked /> */}
           <div className="radio-info">
             <div className="col col-12">
               <div className="text">標準運送</div>
@@ -20,7 +19,6 @@ function StepTwo() {
         </label>
         <label className="radio-group col col-12" data-price="500">
           <Input id="shipping-dhl" type="radio" name="shipping" />
-          {/* <input id="shipping-dhl" type="radio" name="shipping" /> */}
           <div className="radio-info">
             <div className="col col-12">
               <div className="text">DHL 貨運</div>
