@@ -1,47 +1,56 @@
 import React, { useState } from "react";
 import { ReactComponent as SvgIconMinus } from "../../imagefiles/icons/minus.svg";
 import { ReactComponent as SvgPlus } from "../../imagefiles/icons/plus.svg";
-// import Product1 from "../../imagefiles/images/product-1.jpg";
-// import Product2 from "../../imagefiles/images/product-2.jpg";
 import cardData from "../../data/cardData";
 
-function Product({ id, setTotle, price, img, name }) {
-  const [quantity, setQuantity] = useState(0);
-
-  function handlePlus() {
-    setQuantity(quantity + 1);
-    setTotle((total) => total + price);
+function Product({ onCardChange, cartProducts }) {
+  function handleQuantityClick(e) {
+    const targetId = e.target.closest(".product-container").id;
+    const isMinus = e.target.parentElement.classList.contains("minus");
+    const nextProduct = cartProducts.map((item) => {
+      if (item.id === targetId) {
+        return {
+          ...item,
+          quantity: isMinus ? item.quantity - 1 : item.quantity + 1,
+        };
+      }
+      return item;
+    });
+    // 小於 0 刪除 購物車內容
+    const updataItems = nextProduct.filter((item) => item.quantity > 0);
+    onCardChange(updataItems);
   }
-  function handleMinus() {
-    if (quantity === 0) return;
-    setQuantity(quantity - 1);
-    setTotle((total) => total - price);
-  }
-  return (
-    <div
-      className="product-container col col-12"
-      data-count={quantity}
-      data-price={price}
-      key={id}
-      id={id}
-    >
-      <img className="img-container" src={img} alt="" />
-      <div className="product-info">
-        <div className="product-name">{name}</div>
-        <div className="product-control-container">
-          <div className="product-control">
-            <SvgIconMinus
-              className="product-action minus"
-              onClick={handleMinus}
-            />
-            <span className="product-count">{quantity}</span>
-            <SvgPlus className="product-action plus" onClick={handlePlus} />
+  const CardItems = cartProducts.map((item) => {
+    return (
+      <div
+        className="product-container col col-12"
+        data-count={item.quantity}
+        data-price={item.price}
+        key={item.id}
+        id={item.id}
+      >
+        <img className="img-container" src={item.img} alt="" />
+        <div className="product-info">
+          <div className="product-name">{item.name}</div>
+          <div className="product-control-container">
+            <div className="product-control">
+              <SvgIconMinus
+                className="product-action minus"
+                onClick={handleQuantityClick}
+              />
+              <span className="product-count">{item.quantity}</span>
+              <SvgPlus
+                className="product-action plus"
+                onClick={handleQuantityClick}
+              />
+            </div>
           </div>
+          <div className="price">{item.price}</div>
         </div>
-        <div className="price">{price}</div>
       </div>
-    </div>
-  );
+    );
+  });
+  return CardItems;
 }
 
 function Price({ price, title }) {
@@ -52,19 +61,19 @@ function Price({ price, title }) {
     </section>
   );
 }
-
 function Cart() {
-  const [total, setTotle] = useState(0);
+  const [cartProducts, setCartProducts] = useState(cardData);
+  const total = cartProducts.reduce((productTotal, item) => {
+    return productTotal + item.quantity * item.price;
+  }, 0);
   return (
     <section className="cart-container col col-lg-5 col-sm-12">
       <h3 className="cart-title">購物籃</h3>
       <section className="product-list col col-12" data-total-price="0">
-        {cardData.map((card) => (
-          <Product {...card} setTotle={setTotle} />
-        ))}
+        <Product cartProducts={cartProducts} onCardChange={setCartProducts} />
       </section>
       <Price title="運費" price={"免費"} />
-      <Price title="小計" price={total} />
+      <Price title="小計" price={'$ '+total} />
     </section>
   );
 }
