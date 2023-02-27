@@ -4,7 +4,7 @@ import { ReactComponent as SvgLeftArrow } from "../../imagefiles/icons/left-arro
 
 function PrevBtn({ onClick }) {
   return (
-    <button class="prev" onClick={onClick}>
+    <button style={{ cursor: "pointer" }} className="prev" onClick={onClick}>
       <SvgLeftArrow className="cursor-point btn-action" />
       上一步
     </button>
@@ -12,7 +12,7 @@ function PrevBtn({ onClick }) {
 }
 function NextBtn({ onClick }) {
   return (
-    <button class="next" onClick={onClick}>
+    <button style={{ cursor: "pointer" }} className="next" onClick={onClick}>
       下一步
       <SvgRightArrow className="cursor-point btn-action" />
     </button>
