@@ -9,6 +9,10 @@ import { useState } from "react";
 function Main() {
   const [currentStep, setCurrentStep] = useState(1);
   const [phase, setPhase] = useState("address");
+  const [shipPrice, setShipPrice] = useState("免費");
+  const handleRadioChange = (price) => {
+    setShipPrice(price);
+  };
   return (
     <main className="site-main">
       <div className="main-container">
@@ -21,11 +25,11 @@ function Main() {
           <StepProgress phase={phase} />
           <section className="form-container col col-12">
             <StepOne />
-            <StepTwo />
+            <StepTwo onRadioChange={handleRadioChange} />
             <StepThree />
           </section>
         </section>
-        <Cart />
+        <Cart shipPrice={shipPrice} />
         <ProgressControl
           phase={phase}
           currentStep={currentStep}

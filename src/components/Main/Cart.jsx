@@ -61,19 +61,20 @@ function Price({ price, title }) {
     </section>
   );
 }
-function Cart() {
+function Cart({ shipPrice }) {
   const [cartProducts, setCartProducts] = useState(cardData);
-  const total = cartProducts.reduce((productTotal, item) => {
-    return productTotal + item.quantity * item.price;
-  }, 0);
+  const productsTotal = cartProducts
+    .map((item) => item.price * item.quantity)
+    .reduce((sum, price) => sum + price, 0);
+  const total = shipPrice === 500 ? 500 + productsTotal : productsTotal + 0;
   return (
     <section className="cart-container col col-lg-5 col-sm-12">
       <h3 className="cart-title">購物籃</h3>
       <section className="product-list col col-12" data-total-price="0">
         <Product cartProducts={cartProducts} onCardChange={setCartProducts} />
       </section>
-      <Price title="運費" price={"免費"} />
-      <Price title="小計" price={'$ '+total} />
+      <Price title="運費" price={shipPrice} />
+      <Price title="小計" price={"$ " + total} />
     </section>
   );
 }
