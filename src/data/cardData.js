@@ -1,16 +1,18 @@
+import Product1 from "../imagefiles/images/product-1.jpg";
+import Product2 from "../imagefiles/images/product-2.jpg";
 const cardData = [
   {
     id: "1",
-    name: "貓咪罐罐",
-    img: "https://picsum.photos/300/300?text=1",
-    price: 100,
-    quantity: 2,
+    name: "破壞補丁修身牛仔褲",
+    img: Product1,
+    price: 3999,
+    quantity: 1,
   },
   {
     id: "2",
-    name: "貓咪干干",
-    img: "https://picsum.photos/300/300?text=2",
-    price: 200,
+    name: "刷色直筒牛仔褲",
+    img: Product2,
+    price: 1299,
     quantity: 1,
   },
 ];
