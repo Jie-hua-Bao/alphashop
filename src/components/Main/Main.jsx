@@ -6,12 +6,17 @@ import StepThree from "./Steps/StepThree";
 import ProgressControl from "./ProgressControl";
 import Cart from "./Cart";
 import { useState } from "react";
+import cardData from "../../data/cardData";
 function Main() {
   const [currentStep, setCurrentStep] = useState(1);
   const [phase, setPhase] = useState("address");
   const [shipPrice, setShipPrice] = useState("免費");
+  const [cartProducts, setCartProducts] = useState(cardData);
   const handleRadioChange = (price) => {
     setShipPrice(price);
+  };
+  const handleQuantityClick = (quantity) => {
+    setCartProducts(quantity);
   };
   return (
     <main className="site-main">
@@ -29,7 +34,11 @@ function Main() {
             <StepThree />
           </section>
         </section>
-        <Cart shipPrice={shipPrice} />
+        <Cart
+          shipPrice={shipPrice}
+          cartProducts={cartProducts}
+          onQuantityChange={handleQuantityClick}
+        />
         <ProgressControl
           phase={phase}
           currentStep={currentStep}

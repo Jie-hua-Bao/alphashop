@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 import { ReactComponent as SvgIconMinus } from "../../imagefiles/icons/minus.svg";
 import { ReactComponent as SvgPlus } from "../../imagefiles/icons/plus.svg";
-import cardData from "../../data/cardData";
+
 
 function Product({ onCardChange, cartProducts }) {
   function handleQuantityClick(e) {
@@ -61,8 +60,7 @@ function Price({ price, title }) {
     </section>
   );
 }
-function Cart({ shipPrice }) {
-  const [cartProducts, setCartProducts] = useState(cardData);
+function Cart({ shipPrice, onQuantityChange, cartProducts }) {
   const productsTotal = cartProducts
     .map((item) => item.price * item.quantity)
     .reduce((sum, price) => sum + price, 0);
@@ -71,7 +69,7 @@ function Cart({ shipPrice }) {
     <section className="cart-container col col-lg-5 col-sm-12">
       <h3 className="cart-title">購物籃</h3>
       <section className="product-list col col-12" data-total-price="0">
-        <Product cartProducts={cartProducts} onCardChange={setCartProducts} />
+        <Product cartProducts={cartProducts} onCardChange={onQuantityChange} />
       </section>
       <Price title="運費" price={shipPrice} />
       <Price title="小計" price={"$ " + total} />
