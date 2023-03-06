@@ -1,4 +1,6 @@
 import React from "react";
+import { useContext } from "react";
+import { MainContext } from "../../../contexts/MainContext";
 function RadioInput({ price, shipType, title, time, onRadioChange }) {
   return (
     <label className="radio-group col col-12" data-price={price}>
@@ -21,13 +23,14 @@ function RadioInput({ price, shipType, title, time, onRadioChange }) {
   );
 }
 
-function StepTwo({ onRadioChange }) {
+function StepTwo() {
+  const onRadioChange = useContext(MainContext).cart.RadioChange;
   return (
     <form className="col col-12" data-phase="shipping">
       <h3 className="form-title">運送方式</h3>
       <section className="form-body col col-12">
         <RadioInput
-          price={'免費'}
+          price={"免費"}
           shipType="standard"
           title="標準運送"
           time="約 3~7 個工作天"

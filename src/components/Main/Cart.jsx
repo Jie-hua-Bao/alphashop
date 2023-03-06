@@ -1,7 +1,7 @@
 import { ReactComponent as SvgIconMinus } from "../../imagefiles/icons/minus.svg";
 import { ReactComponent as SvgPlus } from "../../imagefiles/icons/plus.svg";
-
-
+import { useContext } from "react";
+import { MainContext } from "../../contexts/MainContext";
 function Product({ onCardChange, cartProducts }) {
   function handleQuantityClick(e) {
     const targetId = e.target.closest(".product-container").id;
@@ -60,11 +60,15 @@ function Price({ price, title }) {
     </section>
   );
 }
-function Cart({ shipPrice, onQuantityChange, cartProducts }) {
-  const productsTotal = cartProducts
-    .map((item) => item.price * item.quantity)
-    .reduce((sum, price) => sum + price, 0);
-  const total = shipPrice === 500 ? 500 + productsTotal : productsTotal + 0;
+function Cart() {
+  const cartProducts = useContext(MainContext).cart.data[0];
+  const shipPrice = useContext(MainContext).cart.shipPrice[0];
+  const total =useContext(MainContext).cart.total
+  const onQuantityChange = useContext(MainContext).cart.Quantity;
+  // const productsTotal = cartProducts
+  //   .map((item) => item.price * item.quantity)
+  //   .reduce((sum, price) => sum + price, 0);
+  // const total = shipPrice === 500 ? 500 + productsTotal : productsTotal + 0;
   return (
     <section className="cart-container col col-lg-5 col-sm-12">
       <h3 className="cart-title">購物籃</h3>

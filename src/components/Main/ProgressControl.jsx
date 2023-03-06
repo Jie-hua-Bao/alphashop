@@ -1,6 +1,8 @@
 import React from "react";
 import { ReactComponent as SvgRightArrow } from "../../imagefiles/icons/right-arrow.svg";
 import { ReactComponent as SvgLeftArrow } from "../../imagefiles/icons/left-arrow.svg";
+import { useContext } from "react";
+import { MainContext } from "../../contexts/MainContext";
 
 function PrevBtn({ onClick }) {
   return (
@@ -20,6 +22,10 @@ function NextBtn({ onClick }) {
 }
 
 function ProgressControl({ currentStep, phase, setPhase, setCurrentStep }) {
+  const total = useContext(MainContext).cart.total;
+
+  const creditCard = useContext(MainContext).pay[0];
+
   const handleBtnClick = (e) => {
     // 按紐的父層 data-phase的值
     const btnPhase = e.target.parentElement.dataset.phase;
@@ -45,6 +51,24 @@ function ProgressControl({ currentStep, phase, setPhase, setCurrentStep }) {
       setCurrentStep((step) => step - 1);
     }
   };
+
+  const handleSetClick = () => {
+    alert(
+      `    持卡人姓名：${creditCard.name}
+    卡號：${creditCard.number}
+    日期：${creditCard.date}
+    cvc：${creditCard.cvc}
+    總金額:${total}`
+    );
+    console.log(`持卡人姓名：${creditCard.name}`);
+    console.log(`卡號：${creditCard.number}`);
+    console.log(`日期：${creditCard.date}`);
+    console.log(`cvc：${creditCard.cvc}`);
+    console.log(`總金額：${total}`);
+    setPhase("address");
+    setCurrentStep(1);
+  };
+
   return (
     <section className="progress-control-container col col-lg-6 col-sm-12">
       <section className="button-group col col-12" data-phase={phase}>
@@ -54,7 +78,9 @@ function ProgressControl({ currentStep, phase, setPhase, setCurrentStep }) {
         {phase !== "credit-card" ? (
           <NextBtn onClick={handleBtnClick} />
         ) : (
-          <button className="next">確認下單</button>
+          <button className="next" onClick={handleSetClick}>
+            確認下單
+          </button>
         )}
       </section>
     </section>
