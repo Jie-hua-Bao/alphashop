@@ -1,7 +1,7 @@
 import { ReactComponent as SvgIconMinus } from "../../imagefiles/icons/minus.svg";
 import { ReactComponent as SvgPlus } from "../../imagefiles/icons/plus.svg";
 import { useContext } from "react";
-import { MainContext } from "../../contexts/MainContext";
+import { DataProvider } from "../../contexts/MainContext";
 function Product({ onCardChange, cartProducts }) {
   function handleQuantityClick(e) {
     const targetId = e.target.closest(".product-container").id;
@@ -62,10 +62,10 @@ function Price({ price, title }) {
   );
 }
 function Cart() {
-  const cartProducts = useContext(MainContext).cart.data[0];
-  const shipPrice = useContext(MainContext).cart.shipPrice[0];
-  const total = useContext(MainContext).cart.total;
-  const onQuantityChange = useContext(MainContext).cart.Quantity;
+  const cartProducts = useContext(DataProvider).cart.data[0];
+  const shipPrice = useContext(DataProvider).cart.shipPrice[0];
+  const total = useContext(DataProvider).cart.total;
+  const onQuantityChange = useContext(DataProvider).cart.Quantity;
 
   // const productsTotal = cartProducts
   //   .map((item) => item.price * item.quantity)
