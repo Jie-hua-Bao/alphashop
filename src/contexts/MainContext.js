@@ -9,7 +9,7 @@ const creditCart = {
 };
 
 // 預設值
-const MainContext = createContext();
+export const MainContext = createContext();
 
 export const useDataContext = () => {
   return useContext(MainContext);

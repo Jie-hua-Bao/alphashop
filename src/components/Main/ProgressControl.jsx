@@ -23,9 +23,8 @@ function NextBtn({ onClick }) {
 
 function ProgressControl({ currentStep, phase, setPhase, setCurrentStep }) {
   const total = useContext(MainContext).cart.total;
-
   const creditCard = useContext(MainContext).pay[0];
-
+  const resetCreditCard = useContext(MainContext).pay[1];
   const handleBtnClick = (e) => {
     // 按紐的父層 data-phase的值
     const btnPhase = e.target.parentElement.dataset.phase;
@@ -67,6 +66,7 @@ function ProgressControl({ currentStep, phase, setPhase, setCurrentStep }) {
     console.log(`總金額：${total}`);
     setPhase("address");
     setCurrentStep(1);
+    resetCreditCard({ name: "", number: "", date: "", cvc: "" });
   };
 
   return (
