@@ -40,7 +40,7 @@ function StepOne() {
             <div className="input-label">稱謂</div>
             <div className="select-container">
               <select>
-                <option value="mr" selected>
+                <option value="mr" >
                   先生
                 </option>
                 <option value="ms">女士</option>
