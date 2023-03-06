@@ -5,9 +5,9 @@ import StepTwo from "./Steps/StepTwo";
 import StepThree from "./Steps/StepThree";
 import ProgressControl from "./ProgressControl";
 import Cart from "./Cart";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import cardData from "../../data/cardData";
-import { MainContext, creditCart } from "../../contexts/MainContext";
+import { MainContext } from "../../contexts/MainContext";
 function Main() {
   const creditCart = {
     name: "",
@@ -21,11 +21,12 @@ function Main() {
   const [shipPrice, setShipPrice] = useState("免費");
   const [cartProducts, setCartProducts] = useState(cardData);
   const [creditCard, setCreditCard] = useState(creditCart);
-  //商品金額計算
+  //商品金額計算 totalPrice 千位數+逗號
   const productsTotal = cartProducts
     .map((item) => item.price * item.quantity)
     .reduce((sum, price) => sum + price, 0);
   const total = shipPrice === 500 ? 500 + productsTotal : productsTotal + 0;
+  const totalPrice = new Intl.NumberFormat("en-US");
 
   // function 切換運費免費 以及商品數量 +-
   const handleRadioChange = (price) => {
@@ -40,7 +41,7 @@ function Main() {
     cart: {
       data: [cartProducts, setCartProducts],
       shipPrice: [shipPrice, setShipPrice],
-      total: total,
+      total: totalPrice.format(total),
       Quantity: handleQuantityClick,
       RadioChange: handleRadioChange,
     },

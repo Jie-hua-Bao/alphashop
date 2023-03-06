@@ -20,6 +20,7 @@ function Product({ onCardChange, cartProducts }) {
     onCardChange(updataItems);
   }
   const CardItems = cartProducts.map((item) => {
+    const productPrice = new Intl.NumberFormat("en-US");
     return (
       <div
         className="product-container col col-12"
@@ -44,7 +45,7 @@ function Product({ onCardChange, cartProducts }) {
               />
             </div>
           </div>
-          <div className="price">{item.price}</div>
+          <div className="price">{productPrice.format(item.price)}</div>
         </div>
       </div>
     );
@@ -63,8 +64,9 @@ function Price({ price, title }) {
 function Cart() {
   const cartProducts = useContext(MainContext).cart.data[0];
   const shipPrice = useContext(MainContext).cart.shipPrice[0];
-  const total =useContext(MainContext).cart.total
+  const total = useContext(MainContext).cart.total;
   const onQuantityChange = useContext(MainContext).cart.Quantity;
+
   // const productsTotal = cartProducts
   //   .map((item) => item.price * item.quantity)
   //   .reduce((sum, price) => sum + price, 0);
