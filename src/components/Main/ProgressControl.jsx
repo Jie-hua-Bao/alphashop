@@ -1,8 +1,7 @@
 import React from "react";
 import { ReactComponent as SvgRightArrow } from "../../imagefiles/icons/right-arrow.svg";
 import { ReactComponent as SvgLeftArrow } from "../../imagefiles/icons/left-arrow.svg";
-import { useContext } from "react";
-import { MainContext } from "../../contexts/MainContext";
+import { useDataContext } from "../../contexts/MainContext";
 
 function PrevBtn({ onClick }) {
   return (
@@ -22,9 +21,10 @@ function NextBtn({ onClick }) {
 }
 
 function ProgressControl({ currentStep, phase, setPhase, setCurrentStep }) {
-  const total = useContext(MainContext).cart.total;
-  const creditCard = useContext(MainContext).pay[0];
-  const resetCreditCard = useContext(MainContext).pay[1];
+  const data =useDataContext()
+  const total = data.cart.total;
+  const creditCard = data.pay[0];
+  const resetCreditCard = data.pay[1];
   const handleBtnClick = (e) => {
     // 按紐的父層 data-phase的值
     const btnPhase = e.target.parentElement.dataset.phase;

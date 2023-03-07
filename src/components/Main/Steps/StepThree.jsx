@@ -1,5 +1,4 @@
-import { MainContext } from "../../../contexts/MainContext";
-import { useContext } from "react";
+import { useDataContext } from "../../../contexts/MainContext";
 
 function Payment({ payment, titleClassName = "input-label", onChange, value }) {
   return (
@@ -16,7 +15,8 @@ function Payment({ payment, titleClassName = "input-label", onChange, value }) {
 }
 
 function StepThree() {
-  const [creditCard, setCreditCard] = useContext(MainContext).pay;
+  const data = useDataContext();
+  const [creditCard, setCreditCard] = data.pay;
   //item 是陣列裡的key
   function handleChange(e, item) {
     setCreditCard({
